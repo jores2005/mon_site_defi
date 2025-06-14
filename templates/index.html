@@ -1,0 +1,84 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DevGame Challenge - Soumets ton Jeu Python</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="preloader">
+    <div class="loader"></div>
+    <p>Chargement...</p>
+  </div>
+
+  <header>
+    <div class="container">
+      <div class="logo">
+        <svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="22" stroke="#4fc3f7" stroke-width="4" fill="none" />
+          <path d="M16 32 L24 16 L32 32 Z" fill="#4fc3f7" />
+        </svg>
+        <h1>DevGame Challenge</h1>
+      </div>
+      <p>Participe au défi du mois et fais évaluer ton jeu Pygame par un expert !</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="card challenge">
+      <h2>🚀 Défi en cours</h2>
+      <p><strong>IA de Boss</strong> : Crée une classe <code>BossAI</code> qui adapte ses attaques selon la vie du joueur.</p>
+    </section>
+
+    <form action="/submit" method="POST" class="form">
+      <div class="form-group">
+        <label for="challenge">Choisis ton défi :</label>
+        <select name="challenge" id="challenge" required>
+          <option value="">-- Sélectionner un défi --</option>
+          <option value="boss_ai">Défi 1 : IA de boss</option>
+          <option value="wave_system">Défi 2 : Système de vagues</option>
+          <option value="pickup_logic">Défi 3 : Gestion des bonus</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Ton Email</label>
+        <input type="email" name="email" id="email" placeholder="exemple@mail.com" required />
+      </div>
+
+      <div class="form-group">
+        <label for="editor">Ton Code Python</label>
+        <div id="editor"># Commence à coder ici...</div>
+        <textarea name="code" id="code" hidden></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="captcha">Combien font 3 + 2 ? (anti-spam)</label>
+        <input type="text" name="captcha" id="captcha" required placeholder="5" />
+      </div>
+
+      <button type="submit">🚀 Soumettre mon code</button>
+      <div class="confirmation" id="confirmation">
+        ✅ Soumission envoyée ! Tu recevras une réponse par email.
+      </div>
+    </form>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 DevGame Challenge • Codé avec ❤️ et Python</p>
+    </div>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.21.2/min/vs/loader.min.js"></script>
+  <script src="{{ url_for('static', filename='js/editor.js') }}"></script>
+  <script>
+    window.addEventListener('load', function () {
+      document.getElementById('preloader').style.display = 'none';
+    });
+  </script>
+</body>
+</html>

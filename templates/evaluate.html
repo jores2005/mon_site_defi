@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Évaluation de {{ filename }}</title>
+  <style>
+    body { background: #1e1e1e; color: #fff; font-family: sans-serif; padding: 20px; }
+    textarea { width: 100%; height: 150px; margin-top: 10px; background: #2c2c2c; color: white; border: none; padding: 10px; font-family: monospace; }
+    pre { background: #2a2a2a; padding: 15px; overflow: auto; }
+    button { margin-top: 10px; padding: 10px 20px; background: #4fc3f7; border: none; font-weight: bold; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>📝 Évaluation de : {{ filename }}</h1>
+  <pre>{{ content }}</pre>
+  <form method="POST">
+    <label for="comment">Ton commentaire ou retour :</label>
+    <textarea name="comment" placeholder="Écris ici ton évaluation..."></textarea>
+    <button type="submit">Enregistrer l'évaluation</button>
+  </form>
+</body>
+</html>
