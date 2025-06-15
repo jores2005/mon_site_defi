@@ -14,12 +14,12 @@ os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(EVAL_FOLDER, exist_ok=True)
 
 # Configuration email
-EMAIL_ADDRESS = "ton.email@gmail.com"
-EMAIL_PASSWORD = "motdepasse_app"
+EMAIL_ADDRESS = "saakamtajores@gmail.com"
+EMAIL_PASSWORD = "saa.kamta.2005"
 
 # Configuration admin login
-ADMIN_USERNAME = "admin"
-ADMIN_PASSWORD = "securepass"
+ADMIN_USERNAME = "jores"
+ADMIN_PASSWORD = "saa.kamta.2005"
 
 def check_auth(username, password):
     return username == ADMIN_USERNAME and password == ADMIN_PASSWORD
@@ -155,4 +155,5 @@ def send_evaluation_email(to_email, filename, comment):
         print("Erreur envoi évaluation:", e)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
